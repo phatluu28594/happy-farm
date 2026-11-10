@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#7acb8d">
+  <title>Happy Farm Online</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand"><span class="brand-icon">🌻</span><div><b>Happy Farm</b><small>Thế giới nông trại vui vẻ</small></div></div>
+      <div class="top-stats"><span>🪙 <b id="coins">500</b></span><span>⭐ Cấp <b id="level">1</b></span><span>🌐 <b id="online">1</b> online</span></div>
+    </header>
+    <main class="layout">
+      <section class="game-panel">
+        <div class="scene-head"><div><b id="farm-title">Nông trại vui vẻ</b><small id="owner-label">Nông trại của bạn</small></div><button id="home-btn" class="soft hidden">🏡 Về nhà</button></div>
+        <div class="canvas-wrap"><canvas id="farm" width="900" height="620" aria-label="Nông trại 2D"></canvas><div class="canvas-tip">Chạm ô đất để trồng hoặc thu hoạch · Dùng phím WASD để di chuyển</div></div>
+        <div class="move-pad"><button data-move="up">▲</button><div><button data-move="left">◀</button><button data-move="down">▼</button><button data-move="right">▶</button></div></div>
+        <div class="toolbar">
+          <button class="tool active" data-tab="farm">🌱 Trồng trọt</button><button class="tool" data-tab="animals">🐮 Chăn nuôi</button><button class="tool" data-tab="pond">🐠 Ao cá</button><button class="tool" data-tab="shop">🛒 Cửa hàng</button><button class="tool" data-tab="market">🤝 Chợ chung</button>
+        </div>
+        <section id="action-panel" class="action-panel"></section>
+      </section>
+      <aside class="sidebar">
+        <section class="card profile"><div class="avatar">👩‍🌾</div><div><b id="player-name">Nông dân</b><small id="farm-level">Cấp 1 · 0 XP</small><div class="xp"><i id="xp-bar"></i></div></div></section>
+        <section class="card"><h3>🌍 Người chơi online</h3><div id="players" class="players"></div></section>
+        <section class="card"><h3>💬 Trò chuyện</h3><div id="chat-log" class="chat-log"></div><form id="chat-form"><input id="chat-input" maxlength="180" placeholder="Gửi lời chào..." autocomplete="off"><button>➤</button></form></section>
+        <section class="card"><h3>📣 Tin nông trại</h3><div id="feed" class="feed"></div></section>
+      </aside>
+    </main>
+    <footer>Happy Farm Online · Trồng cây, chăm thú, nuôi cá và kết bạn 🌈</footer>
+  </div>
+  <div id="toast" class="toast"></div>
+  <div id="join-modal" class="modal"><div class="modal-box"><div class="big-sun">🌞</div><h1>Chào mừng đến Happy Farm!</h1><p>Chọn tên nông dân để bắt đầu chuyến phiêu lưu.</p><input id="name-input" maxlength="18" placeholder="Tên của bạn" value="Nông dân vui vẻ"><button id="join-btn" class="primary">Vào nông trại ✨</button></div></div>
+  <script src="/socket.io/socket.io.js"></script><script src="/game.js"></script>
+</body></html>
